@@ -19,19 +19,19 @@
 */
 require 'vendor/autoload.php';
 
-$client = new Zelenin\Telegram\Bot\Api(''); // Set your access token
-$url = ''; // URL RSS feed
+$client = new Zelenin\Telegram\Bot\Api('1148054515:AAEQC3Svg_miDik_Z74iWv_WvlHMHIKNWjQ'); // Set your access token
+$url = 'https://santosapp.herokuapp.com/'; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
 
 //your app
 try {
 
-    if($update->message->text == '/email')
+    if($update->message->text == '/salutami')
     {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
         	'chat_id' => $update->message->chat->id,
-        	'text' => "You can send email to : Kasra@madadipouya.com"
+        	'text' => "Ciao come stai?"
      	]);
     }
     else if($update->message->text == '/help')
